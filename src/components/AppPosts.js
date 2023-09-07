@@ -14,7 +14,7 @@ const AppPosts = () => {
     }
 
     return (
-        <div>
+        <div style={{ backgroundColor: "lightblue", padding: "20px" }}>
             {posts.map((post, index) => {
                 return (
                     <AppPost 

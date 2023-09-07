@@ -5,7 +5,7 @@ export const getAll = () => {
 }
 
 export const getPost = (id) => {
-    return API.get(`/posts/${id}`);
+    return API.get(`/posts/${id}?filter={"include" : ["comments"]}`); 
 }
 
 export const add = (post) => {
@@ -18,5 +18,9 @@ export const edit = (post, id) => {
 
 export const deletePost = (id) => {
     return API.delete(`/posts/${id}`);
+}
+
+export const addComment = (comment, postId) => {
+    return API.post(`/posts/${postId}/comments`);
 }
 

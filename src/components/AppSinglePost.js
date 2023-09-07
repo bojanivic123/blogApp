@@ -7,18 +7,15 @@ const AppSinglePost = () => {
     const [currentPost, setCurrentPost] = useState({});
     useEffect(() => {
         getPost(id).then(({data}) => setCurrentPost(data));
-    });
+    }, [id]);
 
     return (
-        <div>
-            <h1>{currentPost.title}</h1>
-            <p>{currentPost.text}</p>
+        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "20px", backgroundColor: "green", borderRadius: "5px" }}>
+            <h1 style={{ marginBottom: "10px" }}>{currentPost.title}</h1>
+            <p style={{ fontSize: "16px" }}>{currentPost.text}</p>
         </div>
     )
 }
 
 export default AppSinglePost;
-
-
-
 
