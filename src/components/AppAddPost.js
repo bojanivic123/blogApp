@@ -7,7 +7,6 @@ import { edit } from "../services/postsService";
 const AppAddPost = () => {
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
-    const [createdAt, setCreatedAt] = useState("");
 
     const navigate = useNavigate();
 
@@ -22,19 +21,18 @@ const AppAddPost = () => {
     const handleSubmit = e => {
         if (id) {
             e.preventDefault();
-            edit({title, text, createdAt}, id);
+            edit({title, text}, id);
             navigate("/posts");
             return;
         }
         e.preventDefault();
-        add({title, text, createdAt}); 
+        add({title, text}); 
         navigate("/posts");
     }
 
     const handleReset = () => {
         setTitle("");
-        setText("");
-        setCreatedAt(""); 
+        setText(""); 
     }
 
     return (
@@ -44,8 +42,6 @@ const AppAddPost = () => {
                 <input type="text" value={title} onChange={e => setTitle(e.target.value)} style={{ padding: "8px", marginBottom: "12px", border: "1px solid red", borderRadius: "3px" }} required />
                 <label style={{ marginBottom: "8px" }}>Text</label>
                 <input type="text" maxLength={300} value={text} onChange={e => setText(e.target.value)} style={{ padding: "8px", marginBottom: "12px", border: "1px solid red", borderRadius: "3px" }} required />
-                <label style={{ marginBottom: "8px" }}>Created at</label>
-                <input type="text" value={createdAt} onChange={e => setCreatedAt(e.target.value)} style={{ padding: "8px", marginBottom: "12px", border: "1px solid red", borderRadius: "3px" }} required />
                 <button style={{ padding: "10px 20px", backgroundColor: "pink", border: "none", borderRadius: "3.5px", marginBottom: "12px" }} type="submit">Add post</button> 
                 <button style={{ padding: "10px 20px", backgroundColor: "pink", border: "none", borderRadius: "3.5px", marginBottom: "12px" }} type="reset" onClick={() => handleReset()}>Reset</button> 
             </form>

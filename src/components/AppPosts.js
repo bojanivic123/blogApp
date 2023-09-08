@@ -7,10 +7,10 @@ const AppPosts = () => {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         getAll().then(({data}) => setPosts(data));
-    }, []);
+    });
 
     const handleDelete = id => {
-        deletePost(id);
+        deletePost(id);    
     }
 
     return (
@@ -29,6 +29,5 @@ const AppPosts = () => {
 }
 
 export default AppPosts;
-
 
 
