@@ -21,6 +21,6 @@ export const deletePost = (id) => {
 }
 
 export const addComment = (comment, postId) => {
-    return API.post(`/posts/${postId}/comments`);
+    return API.post(`/posts/${postId}/comments`, comment);  
 }
 

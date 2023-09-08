@@ -7,20 +7,19 @@ const AppPosts = () => {
     const [posts, setPosts] = useState([]);
     useEffect(() => {
         getAll().then(({data}) => setPosts(data));
-    });
+    }, []);
 
     const handleDelete = id => {
         deletePost(id);
     }
 
     return (
-        <div style={{ backgroundColor: "lightblue", padding: "20px" }}>
+        <div style={{ padding: "20px" }}>
             {posts.map((post, index) => {
                 return (
                     <AppPost 
                         key={index}
-                        post={post}
-                        
+                        post={post}       
                         handleDelete={handleDelete} 
                     />
                 )
@@ -30,4 +29,6 @@ const AppPosts = () => {
 }
 
 export default AppPosts;
+
+
 

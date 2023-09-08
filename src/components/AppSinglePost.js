@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { getPost } from "../services/postsService";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom"; 
 
 const AppSinglePost = () => {
     const {id} = useParams(); 
-    const [currentPost, setCurrentPost] = useState({});
+    const [currentPost, setCurrentPost] = useState({}); 
     useEffect(() => {
         getPost(id).then(({data}) => setCurrentPost(data));
     }, [id]);

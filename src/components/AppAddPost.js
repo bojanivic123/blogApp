@@ -28,7 +28,7 @@ const AppAddPost = () => {
         }
         e.preventDefault();
         add({title, text, createdAt}); 
-        navigate("/posts") 
+        navigate("/posts");
     }
 
     const handleReset = () => {
